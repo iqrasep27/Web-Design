@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image as a Link</title>
+</head>
+<body>
+
+  <h2>Click the Image to Visit the Website</h2>
+
+  <!-- Image as a Link -->
+  <a href="https://www.example.com" target="_blank">
+    <img src="https://via.placeholder.com/200" alt="Example Website" width="200" height="150" style="border-radius: 10px;">
+  </a>
+
+</body>
+</html>
