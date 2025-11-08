@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lists in HTML</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 30px;
+    }
+    h2 {
+      color: #333;
+    }
+    ul, ol, dl {
+      margin-left: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Unordered List (Bulleted)</h2>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>Python</li>
+  </ul>
+
+  <h2>Ordered List (Numbered)</h2>
+  <ol>
+    <li>Register for the course</li>
+    <li>Attend lectures</li>
+    <li>Complete assignments</li>
+    <li>Write final exam</li>
+  </ol>
+
+  <h2>Definition List</h2>
+  <dl>
+    <dt><b>HTML</b></dt>
+    <dd>- HyperText Markup Language, used to create web pages.</dd>
+
+    <dt><b>CSS</b></dt>
+    <dd>- Cascading Style Sheets, used for styling web pages.</dd>
+
+    <dt><b>JavaScript</b></dt>
+    <dd>- A scripting language used to add interactivity to websites.</dd>
+  </dl>
+
+</body>
+</html>
