@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Using &lt;section&gt; + if (JavaScript)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background:#f7f9fc; }
+    header { margin-bottom: 1rem; }
+    nav { margin-bottom: 1rem; }
+    section { background: #fff; padding: 16px; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);}
+    .hidden { display: none; }
+    .controls { display:flex; gap:8px; align-items:center; margin-bottom:12px;}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Course Info</h1>
+    <p>Example showing semantic &lt;section&gt; blocks and conditional display using JavaScript's <code>if</code>.</p>
+  </header>
+
+  <nav class="controls">
+    <label for="topic">Show section:</label>
+    <select id="topic">
+      <option value="all">All</option>
+      <option value="overview">Overview</option>
+      <option value="syllabus">Syllabus</option>
+      <option value="contact">Contact</option>
+    </select>
+
+    <button id="toggleBtn">Toggle Syllabus (JS if)</button>
+  </nav>
+
+  <!-- Semantic sections -->
+  <section id="overview">
+    <h2>Overview</h2>
+    <p>This section describes the course goals and intended audience.</p>
+  </section>
+
+  <section id="syllabus">
+    <h2>Syllabus</h2>
+    <ol>
+      <li>HTML &amp; CSS fundamentals</li>
+      <li>JavaScript basics</li>
+      <li>DOM &amp; events</li>
+    </ol>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Instructor: Dr. Smith — <a href="mailto:smith@example.com">smith@example.com</a></p>
+  </section>
+
+  <script>
+    // Grab controls and sections
+    const select = document.getElementById('topic');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const sections = {
+      overview: document.getElementById('overview'),
+      syllabus: document.getElementById('syllabus'),
+      contact: document.getElementById('contact'),
+    };
+
+    // Function that uses an `if` to show/hide sections based on selection
+    function showSelected() {
+      const choice = select.value; // 'all' | 'overview' | 'syllabus' | 'contact'
+
+      // If 'all', show every section; otherwise show only the chosen one
+      if (choice === 'all') {
+        for (const s of Object.values(sections)) {
+          s.classList.remove('hidden');
+        }
+      } else {
+        for (const [key, s] of Object.entries(sections)) {
+          if (key === choice) {
+            s.classList.remove('hidden');
+          } else {
+            s.classList.add('hidden');
+          }
+        }
+      }
+    }
+
+    // Attach event listener
+    select.addEventListener('change', showSelected);
+
+    // Another example using if to toggle a single section
+    toggleBtn.addEventListener('click', () => {
+      // if syllabus visible -> hide it, else show it
+      if (sections.syllabus.classList.contains('hidden')) {
+        sections.syllabus.classList.remove('hidden');
+        toggleBtn.textContent = 'Toggle Syllabus (JS if)';
+      } else {
+        sections.syllabus.classList.add('hidden');
+        toggleBtn.textContent = 'Show Syllabus';
+      }
+    });
+
+    // initialize (show all)
+    showSelected();
+  </script>
+
+</body>
+</html>
